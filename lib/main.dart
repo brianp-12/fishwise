@@ -8,147 +8,128 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor:
-            Color(0xFF1A1E2A), // Dark blue background color
-      ),
-      home: HomeScreen(),
+      home: HomePage(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Icon(Icons.arrow_back, color: Colors.white),
-        actions: [
-          Icon(Icons.menu, color: Colors.white),
-          SizedBox(width: 16),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
+      body: Container(
+        // Set background image here
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/fishWiseBackground.png'),
+            fit: BoxFit.cover, // Makes sure the image covers the entire screen
+          ),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Choose your',
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
+            // Create a spacer to position image
+            const SizedBox(height: 50), // Adjust as necessary for positioning
+            Center(
+              child: Image.asset(
+                'assets/images/fishWiseLogo.png',
+                height: 120, // Adjust the size of the logo image
               ),
             ),
-            Text(
-              'need',
-              style: TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+            const SizedBox(height: 30), // Space between logo and text
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                'We have saved 0 fish so far!',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center, // Centers the text
               ),
             ),
-            SizedBox(height: 16),
-            Text(
-              'Home',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white54,
+            const SizedBox(height: 50), // Space between text and button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to the second screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StartPage()),
+                  );
+                },
+                style:ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
+                  foregroundColor: Colors.white, // Text color (e.g., white)
+                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
+                  textStyle: TextStyle(fontSize: 20), // Text size
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
+                  ),
+                ),
+                child: const Text('Get Started!'),
               ),
             ),
-            Divider(
-              color: Colors.white54,
-              thickness: 1,
-              endIndent: MediaQuery.of(context).size.width * 0.6,
-            ),
-            SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: [
-                  MenuItem(
-                    icon: Icons.language,
-                    title: 'Fish Detector',
-                    color: Colors.green,
+            const SizedBox(height: 30), // Space between button and button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to the second screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomePage()),
+                  );
+                },
+                style:ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
+                  foregroundColor: Colors.white, // Text color (e.g., white)
+                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
+                  textStyle: TextStyle(fontSize: 20), // Text size
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
                   ),
-                  MenuItem(
-                    icon: Icons.warning,
-                    title: 'Endangered Fish',
-                    color: Colors.yellow,
-                  ),
-                  MenuItem(
-                    icon: Icons.campaign,
-                    title: 'Report Fish!',
-                    color: Colors.blue,
-                  ),
-                  MenuItem(
-                    icon: Icons.phone,
-                    title: 'Contact Us',
-                    color: Colors.grey,
-                  ),
-                ],
+                ),
+                child: const Text('Welcome!'),
               ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF1A1E2A),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.tune, color: Colors.white54),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart, color: Colors.white54),
-            label: '',
-          ),
-        ],
+    );
+  }
+}
+
+class StartPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Start Page"),
+      ),
+      body: Center(
+        child: const Text(
+          'Welcome to the Start Page!',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }
 }
 
-class MenuItem extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final Color color;
-
-  const MenuItem({
-    required this.icon,
-    required this.title,
-    required this.color,
-  });
-
+class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Color(0xFF2B3142),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(icon, color: color, size: 28),
-          ),
-          SizedBox(width: 16),
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
-          ),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Welcome Page"),
+      ),
+      body: Center(
+        child: const Text(
+          'Welcome to the Welcome Page!',
+          style: TextStyle(fontSize: 24),
+        ),
       ),
     );
   }
