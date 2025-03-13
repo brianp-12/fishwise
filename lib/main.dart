@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             // Create a spacer to position image
-            const SizedBox(height: 50), // Adjust as necessary for positioning
+            const SizedBox(height: 80), // Adjust as necessary for positioning
             Center(
               child: Image.asset(
                 'assets/images/fishWiseLogo.png',
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                 textAlign: TextAlign.center, // Centers the text
               ),
             ),
-            const SizedBox(height: 50), // Space between text and button
+            const SizedBox(height: 90), // Space between text and buttonS
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ElevatedButton(
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => StartPage()),
                   );
                 },
-                style:ElevatedButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
                   foregroundColor: Colors.white, // Text color (e.g., white)
                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
                 child: const Text('Get Started!'),
               ),
             ),
-            const SizedBox(height: 30), // Space between button and button
+            const SizedBox(height: 40), // Space between buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: ElevatedButton(
@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => WelcomePage()),
                   );
                 },
-                style:ElevatedButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
                   foregroundColor: Colors.white, // Text color (e.g., white)
                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
@@ -94,26 +94,47 @@ class HomePage extends StatelessWidget {
                 child: const Text('Welcome!'),
               ),
             ),
-            const SizedBox(height: 90), // Space between button and text
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0.0), // Optional padding adjustment
-              child: TextButton(
-                onPressed: () {
-                  // Navigate to the second screen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ContactPage()),
-                  );
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.transparent, // Transparent background
-                  foregroundColor: Colors.white, // Text color (white)
-                  textStyle: TextStyle(fontSize: 20), // Text size
-                  padding: EdgeInsets.zero, // No padding, optional based on your needs
+            const SizedBox(height: 180), // Space between buttons
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                  children: [
+                    IconButton(
+                      icon: Image.asset('assets/images/settingsIcon.png', height: 40), // Settings Icon
+                      onPressed: () {
+                        // Navigate to the SettingsPage
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SettingsPage()),
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: TextButton(
+                        onPressed: () {
+                          // Navigate to the second screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ContactPage()),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: Colors.transparent, // Transparent background
+                          foregroundColor: Colors.white, // Text color (white)
+                          textStyle: TextStyle(fontSize: 20), // Text size
+                          padding: EdgeInsets.zero, // No padding, optional based on your needs
+                        ),
+                        child: const Text('Contact Us'),
+                      ),
+                    ),
+                    
+                  ],
                 ),
-                child: const Text('Contact Us'),
-              ),
-            )
+              ],
+            ),
           ],
         ),
       ),
@@ -165,6 +186,23 @@ class ContactPage extends StatelessWidget {
       body: Center(
         child: const Text(
           'Welcome to the Contact Page!',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Settings"),
+      ),
+      body: Center(
+        child: const Text(
+          'Welcome to the Settings Page!',
           style: TextStyle(fontSize: 24),
         ),
       ),
