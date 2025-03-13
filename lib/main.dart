@@ -51,50 +51,58 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 90), // Space between text and buttonS
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Navigate to the second screen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => StartPage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
-                  foregroundColor: Colors.white, // Text color (e.g., white)
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
-                  textStyle: TextStyle(fontSize: 20), // Text size
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
+                child: Container(
+                  width: 270, // Set the width to a fixed value
+                  height: 110, // Set the height to a fixed value
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Navigate to the second screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StartPage()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
+                      foregroundColor: Colors.white, // Text color (e.g., white)
+                      padding: EdgeInsets.zero, // Remove padding to maintain fixed size
+                      textStyle: TextStyle(fontSize: 20), // Text size
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
+                      ),
+                    ),
+                    child: const Text('Get Started!'),
                   ),
                 ),
-                child: const Text('Get Started!'),
               ),
-            ),
             const SizedBox(height: 40), // Space between buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  // Navigate to the second screen
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => WelcomePage()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
-                  foregroundColor: Colors.white, // Text color (e.g., white)
-                  padding: EdgeInsets.symmetric(horizontal: 80, vertical: 45), // Adjust size
-                  textStyle: TextStyle(fontSize: 20), // Text size
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
+              child: Container(
+                width: 270, // Set the width to a fixed value
+                height: 110, // Set the height to a fixed value
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the second screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomePage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black.withOpacity(0.5), // Semi-transparent black
+                    foregroundColor: Colors.white, // Text color (e.g., white)
+                    padding: EdgeInsets.zero, // Remove padding to maintain fixed size
+                    textStyle: TextStyle(fontSize: 20), // Text size
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20), // Control the roundness of the corners
+                    ),
                   ),
+                  child: const Text('Welcome to Fishwise!'),
                 ),
-                child: const Text('Welcome!'),
               ),
             ),
-            const SizedBox(height: 180), // Space between buttons
+            const SizedBox(height: 140), // Space between buttons
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -142,6 +150,16 @@ class HomePage extends StatelessWidget {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
 class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -158,6 +176,16 @@ class StartPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -176,6 +204,16 @@ class WelcomePage extends StatelessWidget {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
 class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -192,6 +230,16 @@ class ContactPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 class SettingsPage extends StatelessWidget {
   @override
