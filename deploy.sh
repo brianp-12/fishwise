@@ -81,4 +81,4 @@ git checkout main
 rm -rf "$TEMP_DIR"
 echo "Temporary directory cleaned up."
 
-echo "Deployment complete! Visit: https://bunnythatboings.github.io/fishwise/" #change to your username in the link
+echo "Deployment complete! Visit: https://brianp-12.github.io/fishwise/" #change to your username in the link
